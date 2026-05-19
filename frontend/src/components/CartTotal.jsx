@@ -6,13 +6,16 @@ import { RiCoupon2Line, RiArrowRightSLine } from 'react-icons/ri';
 import gsap from 'gsap';
 
 function CartTotal() {
-  const { currency, delivery_fee, getCartAmount } = useContext(shopDataContext);
+  const { currency, delivery_fee, getCartAmount, cartItem } = useContext(shopDataContext);
   const [discountCode, setDiscountCode] = useState('');
   const [hasDiscount, setHasDiscount] = useState(false);
   const [discountAmount, setDiscountAmount] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const subtotal = getCartAmount();
+  const [subtotal, setSubtotal] = useState(0);
+  useEffect(() => {
+    getCartAmount().then(setSubtotal);
+  }, [cartItem]);
   const shippingFee = subtotal > 0 ? delivery_fee : 0;
   const discount = hasDiscount ? Math.min(subtotal * 0.1, 50) : 0; // 10% discount, max $50
   const total = subtotal > 0 ? subtotal + shippingFee - discount : 0;

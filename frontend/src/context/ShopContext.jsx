@@ -10,6 +10,7 @@ export const shopDataContext = createContext();
 function ShopContext({ children }) {
   const [product, setProduct] = useState([]);
   const [pagination, setPagination] = useState({ page: 1, total: 0, pages: 1 });
+  const [loadingProducts, setLoadingProducts] = useState(false);
   const [search, setSearch] = useState("");
   const [showSearch, setShowSearch] = useState(false);
   const [cartItem, setCartItem] = useState({});
@@ -23,6 +24,8 @@ function ShopContext({ children }) {
 
   // Fetch products from server
   const getProducts = async (page = 1, limit = 20) => {
+    if (loadingProducts) return;
+    setLoadingProducts(true);
     try {
       const result = await axios.get(
         `${serverUrl}/api/product/list?page=${page}&limit=${limit}`
@@ -32,6 +35,8 @@ function ShopContext({ children }) {
       setPagination(result.data.pagination || { page: 1, total: 0, pages: 1 });
     } catch (error) {
       console.log("Error fetching products:", error);
+    } finally {
+      setLoadingProducts(false);
     }
   };
 
@@ -120,22 +125,29 @@ function ShopContext({ children }) {
   };
 
 
-  const getCartAmount = () => {
+  const getCartAmount = async () => {
     let totalAmount = 0;
     for (const items in cartItem) {
-      let itemInfo = (product || []).find((product) => product._id === items);
+      let itemInfo = (product || []).find((p) => p._id === items);
+      if (!itemInfo) {
+        try {
+          const res = await axios.get(`${serverUrl}/api/product/${items}`);
+          itemInfo = res.data.product || res.data;
+        } catch (error) {
+          console.log("Could not fetch product for cart item:", items);
+        }
+      }
       for (const item in cartItem[items]) {
         try {
           if (itemInfo && cartItem[items][item] > 0) {
             totalAmount += itemInfo.price * cartItem[items][item];
           }
         } catch (error) {
-
         }
       }
     }
-    return totalAmount
-  }
+    return totalAmount;
+  };
 
   const toggleCompare = (product) => {
     setCompareList(prev => {
@@ -184,6 +196,7 @@ function ShopContext({ children }) {
   const value = {
     product,
     pagination,
+    loadingProducts,
     currency,
     delivery_fee,
     getProducts,
