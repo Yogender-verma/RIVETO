@@ -17,7 +17,13 @@ const userSchema = new mongoose.Schema({
  cartData: {
   type: Object,
   default: {}
-}
+},
+wishlist: [
+  {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Product"
+  }
+]
 }, { 
   timestamps: true, 
   minimize: false    // Prevents empty nested objects from being removed

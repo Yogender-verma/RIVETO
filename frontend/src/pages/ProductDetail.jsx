@@ -4,8 +4,6 @@ import { shopDataContext } from '../context/ShopContext';
 import RelatedProduct from '../components/RelatedProduct';
 import { toast } from 'react-toastify';
 import { authDataContext } from '../context/AuthContext';
-
-
 import axios from 'axios';
 
 import 'react-toastify/dist/ReactToastify.css';
@@ -27,10 +25,15 @@ function ProductDetail() {
     product,
     currency,
     addtoCart,
-    addToWishlist
+    addToWishlist,
+    removeFromWishlist,
+    wishlist
   } = useContext(shopDataContext);
 
   const [productData, setProductData] = useState(null);
+  const isWishlisted = productData
+    ? wishlist?.some(item => item._id === productData._id)
+    : false;
   const [selectedImage, setSelectedImage] = useState('');
   const [size, setSize] = useState('');
   const [activeTab, setActiveTab] = useState('description');
@@ -95,10 +98,16 @@ function ProductDetail() {
 
   // wishlist
   const handleAddToWishlist = () => {
-    addToWishlist(productData._id);
-    toast.success('Added to wishlist! 💖');
-  };
+  if (!productData?._id) return;
 
+  if (isWishlisted) {
+    removeFromWishlist(productData._id);
+    toast.info('Removed from wishlist');
+  } else {
+    addToWishlist(productData._id);
+    toast.success('Added to wishlist 💖');
+  }
+};
   // share
   const handleShare = async () => {
 
@@ -431,13 +440,16 @@ function ProductDetail() {
             <div className="flex gap-3">
 
               <button
-                onClick={handleAddToWishlist}
-                className="flex-1 bg-gray-800 text-white py-3 rounded-lg flex items-center justify-center gap-2"
-              >
-                <FaHeart />
-                Wishlist
-              </button>
-
+  onClick={handleAddToWishlist}
+  className={`flex-1 py-3 rounded-lg flex items-center justify-center gap-2 transition-all duration-200
+    ${isWishlisted
+      ? 'bg-rose-600 text-white'
+      : 'bg-gray-800 text-white hover:bg-gray-700'
+    }`}
+>
+  <FaHeart className={isWishlisted ? 'text-white' : ''} />
+  {isWishlisted ? 'Wishlisted' : 'Wishlist'}
+</button>
               <button
                 onClick={handleShare}
                 className="w-14 h-14 bg-gray-800 rounded-lg flex items-center justify-center"

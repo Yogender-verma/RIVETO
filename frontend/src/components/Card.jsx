@@ -6,8 +6,16 @@ import { toast } from 'react-toastify';
 import gsap from 'gsap';
 
 function Card({ name, image, id, price, showQuickActions = true, badge, badgeColor = "from-blue-500 to-cyan-500", onCompare, isCompared, isFeatured = false }) {
-  const { currency, addToWishlist } = useContext(shopDataContext);
+  const {
+  currency,
+  addToWishlist,
+  removeFromWishlist,
+  wishlist
+} = useContext(shopDataContext);
   const navigate = useNavigate();
+  const isWishlisted = wishlist?.some(
+  item => item._id === id
+) || false;
   const [isHovered, setIsHovered] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
@@ -45,27 +53,26 @@ function Card({ name, image, id, price, showQuickActions = true, badge, badgeCol
   };
 
   const handleAddToWishlist = (e) => {
-    e.stopPropagation();
+  e.stopPropagation();
 
-    // Heart animation
-    gsap.to(e.currentTarget, {
-      scale: 1.5,
-      duration: 0.2,
-      yoyo: true,
-      repeat: 1,
-      ease: 'back.out(2)'
-    });
+  gsap.to(e.currentTarget, {
+    scale: 1.5,
+    duration: 0.2,
+    yoyo: true,
+    repeat: 1,
+    ease: 'back.out(2)'
+  });
 
+  const exists = wishlist?.some(item => item._id === id);
+
+  if (exists) {
+    removeFromWishlist(id); 
+    toast.info('Removed from wishlist');
+  } else {
     addToWishlist(id);
-    toast.success('Added to wishlist! 💖', {
-      position: "bottom-right",
-      autoClose: 2000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-    });
-  };
+    toast.success('Added to wishlist 💖');
+  }
+};
 
   const handleCompare = (e) => {
     e.stopPropagation();
@@ -169,11 +176,23 @@ function Card({ name, image, id, price, showQuickActions = true, badge, badgeCol
         {showQuickActions && (
           <button
             onClick={handleAddToWishlist}
-            className={`absolute top-4 right-4 w-11 h-11 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-rose-50 dark:hover:bg-rose-900/30 transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-rose-400 shadow-md ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
-              }`}
+            className={`absolute top-4 right-4 w-11 h-11 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 border shadow-md
+                  ${
+                    isWishlisted
+                      ? 'bg-rose-100 dark:bg-rose-900/40 border-rose-400'
+                      : 'bg-white/90 dark:bg-gray-800/90 border-gray-200 dark:border-gray-700 hover:bg-rose-50 dark:hover:bg-rose-900/30 hover:border-rose-400'
+                  }
+                  ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}
+`}
             aria-label="Add to wishlist"
           >
-            <FaHeart className="text-gray-700 dark:text-gray-300 text-sm hover:text-rose-500 transition-colors" />
+           <FaHeart
+  className={`text-sm transition-colors ${
+    isWishlisted
+      ? 'text-rose-500'
+      : 'text-gray-700 dark:text-gray-300 hover:text-rose-500'
+  }`}
+/>
           </button>
         )}
 

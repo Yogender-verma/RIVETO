@@ -19,6 +19,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import NotFound from './pages/NotFound';
 import Ai from './components/Ai';
 import FaqPage from './pages/FaqPage';
+import Wishlist from './pages/wishlist'
 
 import PrivicyPolicy from './pages/PrivicyPolicy';
 import TermsAndServices from './pages/TermsAndServices';
@@ -77,6 +78,7 @@ function App() {
             )
           }
         />
+        <Route path='/wishlist' element={<Wishlist />} />
         <Route
           path="/about"
           element={

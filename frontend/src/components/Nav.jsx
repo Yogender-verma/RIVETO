@@ -14,6 +14,7 @@ import { userDataContext } from '../context/UserContext';
 import { authDataContext } from '../context/AuthContext';
 import { shopDataContext } from '../context/ShopContext';
 import { ThemeContext } from '../context/ThemeContext';
+import { FaHeart } from "react-icons/fa";
 import gsap from 'gsap';
 
 function Nav() {
@@ -261,7 +262,24 @@ function Nav() {
                 <p className="text-xs text-gray-500 dark:text-gray-400">Track your purchases</p>
               </div>
             </button>
+           <button
+  className="w-full px-4 py-3 hover:bg-gray-100 dark:hover:bg-[#1a2332] cursor-pointer transition-all duration-200 flex items-center gap-3 group text-left"
+  onClick={() => { navigate("/wishlist"); setShowProfile(false); }}
+>
+  <div className="w-9 h-9 rounded-lg bg-rose-50 dark:bg-rose-500/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+    <FaHeart className="w-5 h-5 text-rose-600 dark:text-rose-400" />
+  </div>
 
+  <div className="flex-1">
+    <p className="text-sm font-medium text-gray-900 dark:text-white">
+      Wishlist
+    </p>
+
+    <p className="text-xs text-gray-500 dark:text-gray-400">
+      Your saved products
+    </p>
+  </div>
+</button>
             <button
               className="w-full px-4 py-3 hover:bg-gray-100 dark:hover:bg-[#1a2332] cursor-pointer transition-all duration-200 flex items-center gap-3 group text-left"
               onClick={() => { navigate("/about"); setShowProfile(false); }}
