@@ -17,6 +17,7 @@ import productRoutes from "./routes/productRoutes.js";
 import cartRoutes from "./routes/cartRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
 import reviewRoutes from "./routes/reviewRoute.js";
+import wishlistRouter from "./routes/wishlistRoutes.js";
 import recommendationsRoute from "./routes/recommendations.js";
 
 const app = express();
@@ -44,11 +45,12 @@ connectdb();
 
 // API routes
 app.use("/api/auth", authRoutes);
-app.use("/api/user", userRoutes);
+app.use("/api/user", userRoutes); 
 app.use("/api/product", productRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/order", orderRoutes);
 app.use("/api/review", reviewRoutes);
+app.use("/api/wishlist", wishlistRouter);
 app.use("/api/recommendations", recommendationsRoute);
 
 // Root route (simple test)

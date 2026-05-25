@@ -18,9 +18,14 @@ function ProductDetail() {
     currency,
     addtoCart,
     addToWishlist,
+    removeFromWishlist,
+    wishlist
   } = useContext(shopDataContext);
 
   const [productData, setProductData] = useState(null);
+  const isWishlisted = productData
+    ? wishlist?.some(item => item._id === productData._id)
+    : false;
   const [selectedImage, setSelectedImage] = useState('');
   const [size, setSize] = useState('');
   const [activeTab, setActiveTab] = useState('description');
@@ -107,10 +112,17 @@ function ProductDetail() {
   };
 
   const handleAddToWishlist = () => {
-    addToWishlist(productData._id);
-    toast.success('Added to wishlist!');
-  };
+  if (!productData?._id) return;
 
+  if (isWishlisted) {
+    removeFromWishlist(productData._id);
+    toast.info('Removed from wishlist');
+  } else {
+    addToWishlist(productData._id);
+    toast.success('Added to wishlist 💖');
+  }
+};
+  // share
   const handleShare = async () => {
     if (navigator.share) {
       try {
@@ -428,14 +440,16 @@ function ProductDetail() {
 
             <div className="flex gap-3">
               <button
-                type="button"
-                onClick={handleAddToWishlist}
-                className="flex-1 bg-gray-800 text-white py-3 rounded-lg flex items-center justify-center gap-2"
-                aria-label="Add to wishlist"
-              >
-                <FaHeart aria-hidden="true" />
-                Wishlist
-              </button>
+  onClick={handleAddToWishlist}
+  className={`flex-1 py-3 rounded-lg flex items-center justify-center gap-2 transition-all duration-200
+    ${isWishlisted
+      ? 'bg-rose-600 text-white'
+      : 'bg-gray-800 text-white hover:bg-gray-700'
+    }`}
+>
+  <FaHeart className={isWishlisted ? 'text-white' : ''} />
+  {isWishlisted ? 'Wishlisted' : 'Wishlist'}
+</button>
               <button
                 type="button"
                 onClick={handleShare}
