@@ -1,14 +1,5 @@
 import React, { useMemo, useRef, useCallback } from 'react';
 import { useFocusTrap, useEscapeKey } from '../hooks/useDialogA11y';
-import {
-  _FaTimes,
-  _FaCheck,
-  _FaStar,
-  _FaTrophy,
-  _FaPercent,
-  _FaInfoCircle,
-} from 'react-icons/fa';
-import { _RiPriceTag3Line } from 'react-icons/ri';
 import gsap from 'gsap';
 
 const ComparisonPanel = ({

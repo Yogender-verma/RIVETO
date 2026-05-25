@@ -1,6 +1,4 @@
-import _React, { useEffect, useRef, useState, useMemo } from 'react';
-import { _FaCircle, _FaChevronLeft, _FaChevronRight } from 'react-icons/fa';
-import { _BsHandbag } from 'react-icons/bs';
+import { useEffect, useRef, useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
 

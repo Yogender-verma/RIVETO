@@ -1,8 +1,5 @@
-import _React, { useContext, useState, useEffect } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { shopDataContext } from '../context/ShopContext';
-import _Title from './Title';
-import { _FaShippingFast, _FaPercentage, _FaGift } from 'react-icons/fa';
-import { _RiCoupon2Line, _RiArrowRightSLine } from 'react-icons/ri';
 import gsap from 'gsap';
 
 function CartTotal() {

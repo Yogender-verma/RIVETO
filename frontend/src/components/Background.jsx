@@ -1,4 +1,4 @@
-import _React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import background1 from '../assets/ban7.jpg';
 import background2 from '../assets/ban9.png';

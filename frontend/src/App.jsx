@@ -1,36 +1,10 @@
-import _React, { useContext } from 'react';
-import { _Navigate, _Route, _Routes, useLocation } from 'react-router-dom';
+import { useContext } from 'react';
+import { useLocation } from 'react-router-dom';
 import './App.css';
-import _Registration from './pages/Registration';
-import _Home from './pages/Home';
-import _Login from './pages/Login';
-import _Nav from './components/Nav';
 import { userDataContext } from './context/UserContext';
-import _About from './pages/About';
-import _Collections from './pages/Collections';
-import _Product from './pages/Product';
-import _Contact from './pages/Contact';
-import _ProductDetail from './pages/ProductDetail';
-import _Cart from './pages/Cart';
-import _PlaceOrder from './pages/PlaceOrder';
-import _Order from './pages/Order';
-import { _ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import _NotFound from './pages/NotFound';
-import _Ai from './components/Ai';
-import _FaqPage from './pages/FaqPage';
 
-import _PrivicyPolicy from './pages/PrivicyPolicy';
-import _TermsAndServices from './pages/TermsAndServices';
-import _SizeGuide from './pages/SizeGuide';
-import _CookiePolicy from './pages/CookiePolicy';
-import _Contributors from './pages/Contributors';
-import _NewArrivals from './pages/NewArrivals';
-import _BestSellers from './pages/BestSellers';
-import _Recommendations from './pages/Recommendations';
 import { shopDataContext } from './context/ShopContext';
-import _ComparisonPanel from './components/ComparisonPanel';
-import { _RiPriceTag3Line } from 'react-icons/ri';
 
 function App() {
   const { userData } = useContext(userDataContext);

@@ -1,6 +1,5 @@
-import _React, { useState, useRef, useEffect } from 'react';
-import { _FaCheckCircle, _FaStar, _FaBolt, _FaGift, _FaCrown } from 'react-icons/fa';
-import { _MdEmail } from 'react-icons/md';
+import { useState, useRef, useEffect } from 'react';
+
 import { toast } from 'react-toastify';
 
 function NewsletterBox() {

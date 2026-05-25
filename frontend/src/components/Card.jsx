@@ -1,13 +1,7 @@
-import _React, { useContext, useState, useRef, useMemo } from 'react';
+import { useContext, useState, useRef, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { shopDataContext } from '../context/ShopContext';
-import {
-  _FaHeart,
-  _FaShoppingCart,
-  _FaStar,
-  _FaCheck,
-  _FaExchangeAlt,
-} from 'react-icons/fa';
+
 import { toast } from 'react-toastify';
 import gsap from 'gsap';
 

@@ -1,19 +1,5 @@
-import _React, { useState, useEffect } from 'react';
-import _Footer from '../components/Footer';
-import {
-  _FaShieldAlt,
-  _FaUserCheck,
-  _FaLock,
-  _FaMoneyBillWave,
-  _FaCopyright,
-  _FaExclamationTriangle,
-  _FaEdit,
-  _FaEnvelope,
-  _FaGithub,
-  _FaCheckCircle,
-  _FaArrowRight,
-  _FaFileContract,
-} from 'react-icons/fa';
+import { useState, useEffect } from 'react';
+
 
 const sections = [
   {

@@ -1,8 +1,4 @@
-import _React, { useRef } from 'react';
-import { _RiExchangeFundsLine } from 'react-icons/ri';
-import { _TbRosetteDiscountCheckFilled } from 'react-icons/tb';
-import { _BiSupport } from 'react-icons/bi';
-import { _FaShippingFast } from 'react-icons/fa';
+import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function OurPolicy() {

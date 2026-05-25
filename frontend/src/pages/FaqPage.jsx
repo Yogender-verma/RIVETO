@@ -1,4 +1,4 @@
-import _React from 'react';
+
 import {
   FaHeart,
   FaExchangeAlt,
@@ -7,7 +7,6 @@ import {
   FaCreditCard,
   FaEnvelope,
 } from 'react-icons/fa';
-import _Footer from '../components/Footer';
 
 const faqPage = () => {
   const faqs = [

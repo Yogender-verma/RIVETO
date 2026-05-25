@@ -1,4 +1,4 @@
-import _React, { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { authDataContext } from './AuthContext';
 

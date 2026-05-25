@@ -1,5 +1,4 @@
-import _React from 'react';
-import _ScrollStackComponent, { _ScrollStackItem } from './ScrollStackItem';
+
 
 function ScrollStack() {
   return (

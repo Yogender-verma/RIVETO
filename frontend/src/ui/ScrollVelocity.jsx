@@ -1,13 +1,5 @@
 import { useRef, useLayoutEffect, useState } from 'react';
-import {
-  _motion,
-  useScroll,
-  useSpring,
-  useTransform,
-  useMotionValue,
-  useVelocity,
-  useAnimationFrame,
-} from 'motion/react';
+import { useScroll, useSpring, useTransform, useMotionValue, useVelocity, useAnimationFrame } from 'motion/react';
 import './ScrollVelocity.css';
 
 function useElementWidth(ref) {

@@ -1,23 +1,9 @@
-import _React, { useContext, useState, useEffect } from 'react';
-import _Title from '../components/Title';
-import _CartTotal from '../components/CartTotal';
+import { useContext, useState, useEffect } from 'react';
 import { shopDataContext } from '../context/ShopContext';
 import { authDataContext } from '../context/AuthContext';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import {
-  FaMoneyBillWave,
-  _FaMapMarkerAlt,
-  _FaUser,
-  _FaEnvelope,
-  _FaPhone,
-  _FaCity,
-  _FaGlobe,
-  _FaLock,
-  _FaShippingFast,
-  _FaCheckCircle,
-} from 'react-icons/fa';
-import { _RiSecurePaymentLine, _RiCoupon2Line } from 'react-icons/ri';
+import { FaMoneyBillWave } from 'react-icons/fa';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 

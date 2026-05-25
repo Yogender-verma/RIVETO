@@ -1,10 +1,4 @@
-import _React, { useEffect, useState, useRef } from 'react';
-import _Background from '../components/Background';
-import _Hero from '../components/Hero';
-import _Product from './Product';
-import _OurPolicy from '../components/OurPolicy';
-import _NewLetterBox from '../components/NewLetterBox';
-import _Footer from '../components/Footer';
+import { useEffect, useState, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 

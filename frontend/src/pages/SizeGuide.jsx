@@ -1,20 +1,5 @@
-import _React, { useState } from 'react';
-import _Footer from '../components/Footer';
-import {
-  _FaRulerHorizontal,
-  _FaRulerVertical,
-  _FaTshirt,
-  _FaShoePrints,
-  _FaMale,
-  _FaFemale,
-  _FaChild,
-  _FaExchangeAlt,
-  _FaInfoCircle,
-  _FaChevronDown,
-  _FaChevronUp,
-  _FaHandPointRight,
-} from 'react-icons/fa';
-import { _GiTrousers, _GiNecklaceDisplay } from 'react-icons/gi';
+import { useState } from 'react';
+
 
 /* ─── Size Data ─── */
 

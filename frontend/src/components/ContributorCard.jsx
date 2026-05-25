@@ -1,5 +1,4 @@
-import _React from 'react';
-import { _motion } from 'framer-motion';
+
 
 const ContributorCard = ({ contributor }) => {
   return (

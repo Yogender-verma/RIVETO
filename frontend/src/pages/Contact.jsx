@@ -1,15 +1,5 @@
-import _React, { useState, useRef } from 'react';
-import {
-  _FaPhone,
-  _FaEnvelope,
-  _FaMapMarkerAlt,
-  _FaClock,
-  _FaPaperPlane,
-  _FaCheckCircle,
-} from 'react-icons/fa';
-import { _HiSparkles } from 'react-icons/hi2';
-import _NewsletterBox from '../components/NewLetterBox';
-import _Footer from '../components/Footer';
+import { useState, useRef } from 'react';
+
 
 function Contact() {
   const [formData, setFormData] = useState({

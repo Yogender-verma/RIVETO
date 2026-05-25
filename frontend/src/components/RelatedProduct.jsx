@@ -1,7 +1,5 @@
-import _React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { shopDataContext } from '../context/ShopContext';
-import _Title from './Title';
-import _Card from './Card';
 
 function RelatedProduct({
   category,

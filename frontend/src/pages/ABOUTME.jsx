@@ -1,18 +1,5 @@
-import _React, { useEffect, useRef } from 'react';
-import _ProfileCard from '../components/ProfileCard';
+import { useEffect, useRef } from 'react';
 import avatar from '../assets/avatar.jpg';
-import {
-  _FaGithub,
-  _FaLinkedin,
-  _FaTwitter,
-  _FaEnvelope,
-  _FaDownload,
-  _FaCode,
-  _FaServer,
-  _FaDatabase,
-  _FaCloud,
-  _FaMobile,
-} from 'react-icons/fa';
 // import { SiJavascript, SiReact, SiNodedotjs, SiPython, SiMongodb, SiPostgresql, SiAmazonaws, SiDocker } from 'react-icons/si';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';

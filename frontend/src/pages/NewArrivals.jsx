@@ -1,8 +1,5 @@
-import _React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { shopDataContext } from '../context/ShopContext';
-import _Card from '../components/Card';
-import _Title from '../components/Title';
-import { _motion } from 'framer-motion';
 
 const NewArrivals = () => {
   const {

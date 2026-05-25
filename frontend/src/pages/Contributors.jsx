@@ -1,26 +1,8 @@
-import _React, { useState, useMemo } from 'react';
-import { _motion, _AnimatePresence } from 'framer-motion';
+import { useState, useMemo } from 'react';
 import useGitHubContributors from '../hooks/useGitHubContributors';
-import _FeaturedContributor from '../components/FeaturedContributor';
-import _ContributorCard from '../components/ContributorCard';
-import _Footer from '../components/Footer';
-import {
-  _BsSearch,
-  _BsArrowUpRight,
-  _BsGithub,
-  BsStar,
-  BsGit,
-} from 'react-icons/bs';
+
+import { BsStar, BsGit } from 'react-icons/bs';
 import { HiOutlineUserGroup } from 'react-icons/hi';
-import {
-  _FaTrophy,
-  _FaMedal,
-  _FaAward,
-  _FaCrown,
-  _FaPalette,
-  _FaLightbulb,
-  _FaRocket,
-} from 'react-icons/fa';
 
 // Special mentions (hardcoded specific contributors)
 const specialMentions = {

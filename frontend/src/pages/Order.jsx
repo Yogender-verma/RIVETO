@@ -1,24 +1,8 @@
-import _React, { useContext, useEffect, useState, useRef } from 'react';
-import _Title from '../components/Title';
+import { useContext, useEffect, useState, useRef } from 'react';
 import { shopDataContext } from '../context/ShopContext';
 import { authDataContext } from '../context/AuthContext';
 import axios from 'axios';
-import {
-  FaBox,
-  FaShoppingBag,
-  FaShippingFast,
-  FaCheckCircle,
-  FaClock,
-  _FaMoneyBillWave,
-  _FaCreditCard,
-  _FaCalendarAlt,
-  FaMapMarkerAlt,
-  _FaPhone,
-  _FaEnvelope,
-  FaUndo,
-  _FaStar,
-} from 'react-icons/fa';
-import { _GiReceiveMoney } from 'react-icons/gi';
+import { FaBox, FaShoppingBag, FaShippingFast, FaCheckCircle, FaClock, FaMapMarkerAlt, FaUndo } from 'react-icons/fa';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 

@@ -8,8 +8,7 @@ import {
 
 import * as THREE from 'three';
 
-import { _Canvas, useFrame } from '@react-three/fiber';
-import { _PerspectiveCamera } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
 import { degToRad } from 'three/src/math/MathUtils.js';
 
 import './Beams.css';

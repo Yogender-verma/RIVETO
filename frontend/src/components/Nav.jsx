@@ -1,19 +1,8 @@
-import _React, {
-  useContext,
-  useState,
-  useRef,
-  useEffect,
-  useCallback,
-} from 'react';
+import { useContext, useState, useRef, useEffect, useCallback } from 'react';
 import { useFocusTrap, useEscapeKey } from '../hooks/useDialogA11y';
-import { _IoSearchCircleOutline, _IoSearchCircleSharp } from 'react-icons/io5';
-import { _FaUserCircle } from 'react-icons/fa';
-import { _MdOutlineShoppingCart, _MdLogout } from 'react-icons/md';
 import { IoMdHome } from 'react-icons/io';
 import { HiOutlineCollection } from 'react-icons/hi';
 import { RiContactsLine } from 'react-icons/ri';
-import { _BsMoon, _BsSun, _BsSearch, _BsBoxSeam } from 'react-icons/bs';
-import { _FiInfo, _FiUser, _FiLogIn } from 'react-icons/fi';
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { userDataContext } from '../context/UserContext';

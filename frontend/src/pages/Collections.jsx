@@ -1,24 +1,7 @@
-import _React, {
-  useContext,
-  useEffect,
-  useState,
-  useRef,
-  useCallback,
-} from 'react';
+import { useContext, useEffect, useState, useRef, useCallback } from 'react';
 import { useFocusTrap, useEscapeKey } from '../hooks/useDialogA11y';
-import {
-  _FaChevronRight,
-  _FaChevronDown,
-  _FaFilter,
-  _FaTimes,
-  _FaSearch,
-  _FaStar,
-} from 'react-icons/fa';
-import { _RiPriceTag3Line, _RiArrowUpDownLine } from 'react-icons/ri';
-import { _toast } from 'react-toastify';
+
 import { shopDataContext } from '../context/ShopContext';
-import _Card from '../components/Card';
-import _Footer from '../components/Footer';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 

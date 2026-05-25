@@ -1,6 +1,4 @@
-import _React from 'react';
-import _LastestCollection from '../components/LastestCollection';
-import _BestSeller from '../components/BestSeller';
+
 
 function Product() {
   return (

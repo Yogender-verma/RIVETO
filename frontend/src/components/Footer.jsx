@@ -1,19 +1,4 @@
-import _React, { useEffect, useRef, useState } from 'react';
-import { _Link } from 'react-router-dom';
-import {
-  _FaFacebookF,
-  _FaTwitter,
-  _FaInstagram,
-  _FaLinkedinIn,
-  _FaPhone,
-  _FaEnvelope,
-  _FaMapMarkerAlt,
-  _FaHeart,
-  _FaCheckCircle,
-  _FaTimes,
-} from 'react-icons/fa';
-import { _RiCustomerService2Fill } from 'react-icons/ri';
-import { _BiSupport } from 'react-icons/bi';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { toast } from 'react-toastify';
