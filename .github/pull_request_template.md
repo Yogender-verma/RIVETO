@@ -1,10 +1,13 @@
 # Pull Request
 
+## Summary
+ <!-- 1-2 sentence overview of the change -->
+
 ## Description
-Please provide a clear and concise description of your changes.
+ <!-- Provide a clear and concise description of your changes. Include what changed and why. -->
 
 ## Related Issue
-Fixes #
+Fixes #ISSUE_NUMBER
 
 ## Type of Change
 - [ ] Bug fix
