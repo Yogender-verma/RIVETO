@@ -149,7 +149,7 @@ function Nav() {
 
   const handleLogout = async () => {
     try {
-      await apiConfig.get('/auth/logout');
+      await apiConfig.post('/auth/logout');
 
       getCurrentUser();
       navigate('/login');

@@ -2,13 +2,11 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 
 const rawServer =
-  import.meta.env.VITE_SERVER_URL || import.meta.env.VITE_BACKEND_URL;
+   import.meta.env.VITE_SERVER_URL ||
+   import.meta.env.VITE_BACKEND_URL ||
+   'https://riveto-backend.onrender.com';
 
-if (!rawServer) {
-  throw new Error(
-    'Missing required environment variable: VITE_SERVER_URL or VITE_BACKEND_URL'
-  );
-}
+
 
 const serverURL = rawServer.replace(/\/+$/, '');
 

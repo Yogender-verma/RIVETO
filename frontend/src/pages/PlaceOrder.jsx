@@ -1,11 +1,12 @@
 import { useContext, useState, useEffect } from 'react';
 import { shopDataContext } from '../context/ShopContext';
-import { authDataContext } from '../context/AuthContext';
+import { authDataContext } from "../context/UserContext"
 import apiConfig from '../utils/apiConfig';
 import { useNavigate } from 'react-router-dom';
 import { FaMoneyBillWave } from 'react-icons/fa';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { userDataContext } from '../context/UserContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,7 +23,7 @@ function PlaceOrder() {
     delivery_fee,
     product: products,
   } = useContext(shopDataContext);
-  const { userData } = useContext(authDataContext);
+  const { userData } = useContext(userDataContext);
 
   const [formData, setFormData] = useState({
     firstname: userData?.name?.split(' ')[0] || '',
