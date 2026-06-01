@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import { authDataContext } from './AuthContext';
-import axios from 'axios';
+import apiConfig from '../utils/apiConfig';
 import { userDataContext } from './UserContext';
 
 export const shopDataContext = createContext();
@@ -16,7 +15,6 @@ function ShopContext({ children }) {
   const [compareList, setCompareList] = useState([]);
   const [comparePanelOpen, setComparePanelOpen] = useState(false);
  
-  const { serverUrl } = useContext(authDataContext);
   const { userData } = useContext(userDataContext); //
   const [wishlist, setWishlist] = useState([]);
 
@@ -27,12 +25,7 @@ function ShopContext({ children }) {
 
   try {
 
-    const response = await axios.get(
-      `${serverUrl}/api/wishlist`,
-      {
-        withCredentials: true
-      }
-    );
+    const response = await apiConfig.get('/wishlist');
 
     if (response.data.success) {
       setWishlist(response.data.wishlist);
@@ -44,11 +37,7 @@ function ShopContext({ children }) {
 };
 const addToWishlist = async (productId) => {
   try {
-    const response = await axios.post(
-      `${serverUrl}/api/wishlist/add`,
-      { productId },
-      { withCredentials: true }
-    );
+    const response = await apiConfig.post('/wishlist/add', { productId });
 
     if (response.data.success) {
       if (response.data.wishlist) {
@@ -65,11 +54,7 @@ const addToWishlist = async (productId) => {
 
 const removeFromWishlist = async (productId) => {
   try {
-    const response = await axios.post(
-      `${serverUrl}/api/wishlist/remove`,
-      { productId },
-      { withCredentials: true }
-    );
+    const response = await apiConfig.post('/wishlist/remove', { productId });
 
     if (response.data.success) {
       if (response.data.wishlist) {
@@ -88,8 +73,8 @@ const removeFromWishlist = async (productId) => {
     if (loadingProducts) return;
     setLoadingProducts(true);
     try {
-      const result = await axios.get(
-        `${serverUrl}/api/product/list?page=${page}&limit=${limit}`
+      const result = await apiConfig.get(
+        `/product/list?page=${page}&limit=${limit}`
       );
       const incoming = result.data.products || [];
       setProduct((prev) => (page === 1 ? incoming : [...prev, ...incoming]));
@@ -126,11 +111,7 @@ const removeFromWishlist = async (productId) => {
 
     if (userData) {
       try {
-        let result = await axios.post(
-          serverUrl + '/api/cart/add',
-          { itemId, size },
-          { withCredentials: true }
-        );
+        let result = await apiConfig.post('/cart/add', { itemId, size });
         console.log(result.data);
       } catch (error) {
         console.log(error);
@@ -142,11 +123,7 @@ const removeFromWishlist = async (productId) => {
     if (!userData) return; // Don't call API if not logged in
 
     try {
-      const result = await axios.post(
-        serverUrl + '/api/cart/get',
-        {},
-        { withCredentials: true }
-      );
+      const result = await apiConfig.post('/cart/get', {});
       setCartItem(result.data);
     } catch (error) {
       console.log('❌ Error fetching cart:', error);
@@ -160,11 +137,7 @@ const removeFromWishlist = async (productId) => {
 
     if (userData) {
       try {
-        await axios.post(
-          serverUrl + '/api/cart/update',
-          { itemId, size, quantity },
-          { withCredentials: true }
-        );
+        await apiConfig.post('/cart/update', { itemId, size, quantity });
       } catch (error) {
         console.log(error);
       }
