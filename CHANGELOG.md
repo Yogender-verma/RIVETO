@@ -1,5 +1,9 @@
 # Changelog
 
+All notable changes to RIVETO will be documented in this file.
+
+---
+
 ## [1.1.0] - 2026-06-06
 
 ### Added
@@ -13,7 +17,10 @@
 - Improved overall UI consistency and responsiveness
 
 ### Fixed
-- Google login issue resolved (normalized backend URL and added debug logs)
+- Google login issue resolved by normalizing backend URL and adding debug logs
+
+### Security
+- No known publicly reported vulnerabilities in this release
 
 ---
 
@@ -22,3 +29,6 @@
 ### Added
 - Initial release of RIVETO
 - Basic core application structure
+
+### Security
+- No known vulnerabilities at initial release
